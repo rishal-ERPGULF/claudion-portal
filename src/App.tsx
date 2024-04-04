@@ -1,15 +1,10 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { Button } from "./components/ui/button";
-
+import Router from "./Router/Router";
+import { ThemeProvider } from "./components/theme-provider";
 function App() {
   return (
-    <div>
-      <Button>
-        <span className="text-lg">Click me</span>
-      </Button>
-    </div>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Router />
+    </ThemeProvider>
   );
 }
 
