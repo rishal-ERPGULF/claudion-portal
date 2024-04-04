@@ -1,3 +1,4 @@
+import Home from "@/pages/Home";
 import _layout from "@/pages/_layout";
 import { Route, Routes } from "react-router-dom";
 
@@ -23,8 +24,10 @@ const Router = () => {
           </div>
         }
       />
+      {/* Main routes */}
       <Route path="/" element={<_layout />}>
         {/* Add your routes here */}
+        <Route index element={<Home />} />
       </Route>
     </Routes>
   );
