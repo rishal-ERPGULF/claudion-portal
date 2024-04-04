@@ -7,11 +7,11 @@ const _layout = () => {
     <div className="flex min-h-screen w-full flex-col">
       <Header />
       <div className="flex">
-        <div className="hidden w-20 md:flex justify-center">
+        <aside className="hidden w-20 md:flex justify-center border-r">
           <div className="m-4">
             <Menu />
           </div>
-        </div>
+        </aside>
         <Outlet />
       </div>
     </div>
