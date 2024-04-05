@@ -17,7 +17,7 @@ const Home = () => {
       <section className="flex p-3 md:p-6 flex-col gap-4">
         <div className="flex w-full items-center">
           <h1 className="text-2xl font-bold">Claudions</h1>
-          <div className="ml-auto flex items-center gap-4">
+          <div className="ml-auto flex items-center gap-2 md:gap-4">
             <Button variant={"ghost"} className="gap-2">
               <FileText className="text-blue-600" /> Docs
             </Button>
@@ -27,7 +27,7 @@ const Home = () => {
           </div>
         </div>
         <Table>
-          <TableCaption className="text-base">
+          <TableCaption className="text-sm md:text-base">
             Monthly Network Transfer Pool{" "}
             <span className="text-blue-600 font-semibold">Usage</span>
           </TableCaption>
@@ -62,9 +62,12 @@ const Home = () => {
           </TableBody>
         </Table>
         <div className="w-full text-right">
-          <span className="text-base font-semibold text-blue-500">
+          <Button
+            variant={"link"}
+            className="text-sm md:text-base font-semibold"
+          >
             Download CSV
-          </span>
+          </Button>
         </div>
       </section>
     </main>

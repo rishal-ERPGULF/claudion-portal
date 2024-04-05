@@ -53,7 +53,7 @@ const HomeNav = () => {
             <Input
               type="search"
               placeholder="Search for Claudions, Volumes, Domains ..."
-              className="pl-8"
+              className="pl-8 placeholder:text-xs md:placeholder:text-sm"
             />
           </div>
         </form>
