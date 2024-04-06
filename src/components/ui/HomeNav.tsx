@@ -3,21 +3,26 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import {
   Bell,
+  Box,
   ChevronDown,
   ChevronUp,
+  Globe,
+  GlobeLock,
   HelpCircle,
+  Scale3D,
   Search,
+  Server,
   User,
   UsersRound,
+  Webhook,
 } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const HomeNav = () => {
   const [createToggle, setCreateToggle] = useState<boolean>(false);
 
@@ -38,12 +43,74 @@ const HomeNav = () => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent side="bottom" align="start">
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
+          {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
+          {/* <DropdownMenuSeparator /> */}
+          <DropdownMenuItem>
+            <Link to={"/create/linode"} className="flex items-center gap-2">
+              <Box />
+              <div className="py-2">
+                <h4 className="font-semibold text-sm">Linode</h4>
+                <p className="text-muted-foreground text-xs">
+                  High performance SSD Linux servers
+                </p>
+              </div>
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <div className="flex items-center gap-2">
+              <Server />
+              <div className="py-2">
+                <h4 className="font-semibold text-sm">Volume</h4>
+                <p className="text-muted-foreground text-xs">
+                  High performance SSD Linux servers
+                </p>
+              </div>
+            </div>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <div className="flex items-center gap-2">
+              <Scale3D />
+              <div className="py-2">
+                <h4 className="font-semibold text-sm">Node Balancer</h4>
+                <p className="text-muted-foreground text-xs">
+                  High performance SSD Linux servers
+                </p>
+              </div>
+            </div>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <div className="flex items-center gap-2">
+              <GlobeLock />
+              <div className="py-2">
+                <h4 className="font-semibold text-sm">VPC</h4>
+                <p className="text-muted-foreground text-xs">
+                  High performance SSD Linux servers
+                </p>
+              </div>
+            </div>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <div className="flex items-center gap-2">
+              <Globe />
+              <div className="py-2">
+                <h4 className="font-semibold text-sm">Domain</h4>
+                <p className="text-muted-foreground text-xs">
+                  High performance SSD Linux servers
+                </p>
+              </div>
+            </div>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <div className="flex items-center gap-2">
+              <Webhook />
+              <div className="py-2">
+                <h4 className="font-semibold text-sm">Kubernetes</h4>
+                <p className="text-muted-foreground text-xs">
+                  High performance SSD Linux servers
+                </p>
+              </div>
+            </div>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
       <div className="flex flex-1 w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4 ">

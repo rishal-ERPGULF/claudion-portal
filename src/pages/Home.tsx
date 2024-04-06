@@ -9,7 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { FileText, Menu } from "lucide-react";
+import { CircleCheck, FileText, Menu, Tag, Tags } from "lucide-react";
 const Home = () => {
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40">
@@ -33,7 +33,7 @@ const Home = () => {
           </TableCaption>
           <TableHeader className="dark:bg-black/40 bg-primary/10">
             <TableRow>
-              <TableHead className="w-[100px]">Label</TableHead>
+              <TableHead className="md:w-[100px]">Label</TableHead>
               <TableHead>Status</TableHead>
               <TableHead className="hidden md:table-cell">Plan</TableHead>
               <TableHead className="hidden md:table-cell">
@@ -42,22 +42,30 @@ const Home = () => {
               <TableHead className="hidden md:table-cell">Region</TableHead>
               <TableHead className="text-nowrap">Last Backup</TableHead>
 
-              <TableHead className="text-right">
+              <TableHead className=" flex items-center gap-2 justify-center">
                 <Menu />
+                <Tags />
               </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell>Paid</TableCell>
+              <TableCell className="font-medium text-blue-600">
+                INV001
+              </TableCell>
+              <TableCell className="flex items-center gap-2">
+                <CircleCheck strokeWidth={'3px'} className="w-4 h-4 text-green-600" />
+                <span>
+                  <span className="hidden md:inline">Running</span>
+                </span>
+              </TableCell>
               <TableCell className="hidden md:table-cell">
-                Credit Card
+                Linode 2GB
               </TableCell>
               <TableCell className="hidden md:table-cell">$250.00</TableCell>
               <TableCell className="hidden md:table-cell">INV001</TableCell>
               <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
+              <TableCell className="text-center">Credit Card</TableCell>
             </TableRow>
           </TableBody>
         </Table>

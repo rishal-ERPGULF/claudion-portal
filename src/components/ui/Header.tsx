@@ -9,7 +9,7 @@ const Header = () => {
   const { setTheme, theme } = useTheme();
 
   return (
-    <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-20">
+    <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-20 ">
       <Link
         to={"/"}
         className="text-muted-foreground transition-colors hover:text-foreground mr-2"
