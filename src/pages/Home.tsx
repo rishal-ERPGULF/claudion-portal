@@ -9,7 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { CircleCheck, FileText, Menu, Tag, Tags } from "lucide-react";
+import { CircleCheck, FileText, Menu, Tags } from "lucide-react";
 const Home = () => {
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40">
@@ -54,14 +54,15 @@ const Home = () => {
                 INV001
               </TableCell>
               <TableCell className="flex items-center gap-2">
-                <CircleCheck strokeWidth={'3px'} className="w-4 h-4 text-green-600" />
+                <CircleCheck
+                  strokeWidth={"3px"}
+                  className="w-4 h-4 text-green-600"
+                />
                 <span>
                   <span className="hidden md:inline">Running</span>
                 </span>
               </TableCell>
-              <TableCell className="hidden md:table-cell">
-                Linode 2GB
-              </TableCell>
+              <TableCell className="hidden md:table-cell">Linode 2GB</TableCell>
               <TableCell className="hidden md:table-cell">$250.00</TableCell>
               <TableCell className="hidden md:table-cell">INV001</TableCell>
               <TableCell>Paid</TableCell>
