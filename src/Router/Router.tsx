@@ -1,5 +1,5 @@
 import Home from "@/pages/Home";
-import MainHome from "@/pages/MainHome";
+import Pricing from "@/pages/Pricing";
 import _layout from "@/pages/_layout";
 import { Route, Routes } from "react-router-dom";
 
@@ -29,7 +29,7 @@ const Router = () => {
       <Route path="/" element={<_layout />}>
         {/* Add your routes here */}
         <Route index element={<Home />} />
-        <Route path="/buy" element={<MainHome />} />
+        <Route path="/buy" element={<Pricing />} />
       </Route>
     </Routes>
   );
