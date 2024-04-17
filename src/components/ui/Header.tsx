@@ -43,7 +43,7 @@ const Header = () => {
           Docs
         </Link>
         <Link
-          to={"/"}
+          to={"/pricing"}
           className="text-muted-foreground transition-colors hover:text-foreground"
         >
           Pricing
@@ -111,7 +111,7 @@ const Header = () => {
               Docs
             </Link>
             <Link
-              to={"/"}
+              to={"/pricing"}
               className="text-muted-foreground hover:text-foreground"
             >
               Pricing

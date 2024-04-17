@@ -10,7 +10,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { CircleCheck, FileText, Menu, Tags } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40">
       <HomeNav />
@@ -50,8 +52,13 @@ const Home = () => {
           </TableHeader>
           <TableBody>
             <TableRow>
-              <TableCell className="font-medium text-blue-600">
-                INV001
+              <TableCell
+                className="font-medium text-blue-600 text-nowrap"
+                onClick={() => {
+                  navigate("/claudions/1");
+                }}
+              >
+                Bench Test
               </TableCell>
               <TableCell className="flex items-center gap-2">
                 <CircleCheck
