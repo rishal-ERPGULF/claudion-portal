@@ -29,9 +29,9 @@ const Comments = () => {
        <span className="text-blue-400">developers and designers</span>
       </h2>
   <div className="mt-5 block border rounded-md ">
-    <div className="border-b py-3 md:block lg:flex  gap-20 justify-center">
+    <div className="border-b py-3  flex  gap-20 justify-center">
 
-      <div className="sm:block md:flex">
+      <div className=" sm:flex gap-10">
       <div>
       <h1 className="scroll-m-20 text-blue-400 text-4xl font-bold tracking-tight lg:text-4xl">
         5.8M <br />
@@ -46,7 +46,7 @@ const Comments = () => {
       </div>
       </div>
 
-      <div className="sm:block md:flex">
+      <div className=" sm:flex gap-10">
       <div>
       <h1 className="scroll-m-20 text-blue-400 text-4xl font-bold tracking-tight lg:text-4xl">
         2.9k <br />
@@ -74,8 +74,8 @@ const Comments = () => {
         <p className="font-bold">-{name}</p>
       </div>
     </div>
-    <div className="sm:block lg:flex  border-b justify-center">
-      <div className="sm:border-b md:border-b lg:border-r block p-5">
+    <div className="sm:block lg:flex  border-b ">
+      <div className=" sm:border-b md:border-b lg:border-r block p-5">
         <p>{comments}</p>
         <p className="font-bold">-{name}</p>
       </div>
