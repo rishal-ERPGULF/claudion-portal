@@ -13,9 +13,9 @@ const About = () => {
        <h1 className="scroll-m-20 py-4  text-5xl font-bold tracking-tight lg:text-4xl">
        Key information about <br /> <span className="text-blue-400 ">the paid plans</span>
       </h1>
-      <div className="flex gap-3">
+      <div className="flex grid grid-cols-1 sm:justify-center md:justify-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mr-10">
       <div className="flex flex-col ">
-  <Card className="w-[350px] flex flex-col justify-center mb-6">
+  <Card className=" flex flex-col justify-center mb-6 ">
     <CardHeader>
       <CardTitle className="pb-2">Required quantity</CardTitle>
       <CardDescription>The number of developers licensed must correspond
@@ -27,7 +27,7 @@ const About = () => {
     </CardHeader>
   </Card>
 
-  <Card className="w-[350px] flex flex-col justify-center mb-6">
+  <Card className=" flex flex-col justify-center mb-6">
     <CardHeader>
       <CardTitle className="pb-2">Perpetual license model</CardTitle>
       <CardDescription>
@@ -53,7 +53,7 @@ const About = () => {
   </Card>
 </div>
       <div className="flex flex-col ">
-  <Card className="w-[350px] flex flex-col justify-center mb-6">
+  <Card className=" flex flex-col justify-center mb-6">
     <CardHeader>
       <CardTitle className="pb-2">Perpetual vs. Annual license model</CardTitle>
       <CardDescription>
@@ -71,7 +71,7 @@ development once your license expires.
     </CardHeader>
   </Card>
 
-  <Card className="w-[350px] flex flex-col justify-center mb-6">
+  <Card className=" flex flex-col justify-center mb-6">
     <CardHeader>
       <CardTitle>Annual license model</CardTitle>
       <CardDescription>
@@ -95,7 +95,7 @@ components.
   </Card>
 </div>
       <div className="flex flex-col ">
-  <Card className="w-[350px] flex flex-col justify-center mb-6">
+  <Card className=" flex flex-col justify-center mb-6">
     <CardHeader>
       <CardTitle>Maintenance and support</CardTitle>
       <CardDescription>With your purchase, you receive support and access
@@ -109,7 +109,7 @@ versions.
     </CardHeader>
   </Card>
 
-  <Card className="w-[350px] flex flex-col justify-center mb-6">
+  <Card className=" flex flex-col justify-center mb-6">
     <CardHeader>
       <CardTitle>Volume discounts</CardTitle>
       <CardDescription>

@@ -1,4 +1,6 @@
+import CheckoutDetails from "@/pages/CheckoutDetails";
 import Home from "@/pages/Home";
+import Orderpayment from "@/pages/Orderpayment";
 import Pricing from "@/pages/Pricing";
 import _layout from "@/pages/_layout";
 import { Link } from "react-router-dom";
@@ -31,7 +33,8 @@ const Router = () => {
         {/* Add your routes here */}
         <Route index element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
-        <Route path="/checkout" element={<div>heloo</div>} />
+        <Route path="/checkout" element={<CheckoutDetails/>} />
+        <Route path="/order-payment" element={<Orderpayment/>} />
       </Route>
     </Routes>
   );

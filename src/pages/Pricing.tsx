@@ -13,55 +13,57 @@ import About from "@/components/About";
 import Questions from "@/components/Questions";
 import Comments from "@/components/Comments";
 import Footer from "@/components/Footer";
-
-
+import { useNavigate } from "react-router-dom";
+import { setSelectedProduct } from '../store/Actions';
+import { useDispatch } from 'react-redux';
 
 const MainHome = () => {
+  const dispatch = useDispatch();
+  
+  const [product1, setProduct1] = useState<string>('');
+    const [product2, setProduct2] = useState<string>('');
+    const [product3, setProduct3] = useState<string>('');
+    const [product4, setProduct4] = useState<string>('');
 
-  const [product1, setProduct1] = useState<string>();
-    const [product2, setProduct2] = useState<string>();
-    const [product3, setProduct3] = useState<string>();
-    const [product4, setProduct4] = useState<string>();
+    const [raw1, setRaw1] = useState<string>('');
+    const [raw2, setRaw2] = useState<string>('');
 
-    const [raw1, setRaw1] = useState<string>();
-    const [raw2, setRaw2] = useState<string>();
+    const [service, setService] = useState<string>('');
 
-    const [service, setService] = useState<string>();
+    const [description1, setDescription1] = useState<string>('');
+    const [description2, setDescription2] = useState<string>('');
+    const [description3, setDescription3] = useState<string>('');
+    const [description4, setDescription4] = useState<string>('');
 
-    const [description1, setDescription1] = useState<string>();
-    const [description2, setDescription2] = useState<string>();
-    const [description3, setDescription3] = useState<string>();
-    const [description4, setDescription4] = useState<string>();
+    const [rawdescription1, setRawdescription1] = useState<string>('');
+    const [rawdescription2, setRawdescription2] = useState<string>('');
 
-    const [rawdescription1, setRawdescription1] = useState<string>();
-    const [rawdescription2, setRawdescription2] = useState<string>();
+    const [servicedescription, setServicedescription] = useState<string>('');
 
-    const [servicedescription, setServicedescription] = useState<string>();
+    const [annualamount1, setAnnualamount1] = useState<number>(0);
+    const [perpetualamount1, setPerpetualamount1] = useState<number>(0);
 
-    const [annualamount1, setAnnualamount1] = useState<number>();
-    const [perpetualamount1, setPerpetualamount1] = useState<number>();
+    const [annualamount2, setAnnualamount2] = useState<number>(0);
+    const [perpetualamount2, setPerpetualamount2] = useState<number>(0);
 
-    const [annualamount2, setAnnualamount2] = useState<number>();
-    const [perpetualamount2, setPerpetualamount2] = useState<number>();
+    const [annualamount3, setAnnualamount3] = useState<number>(0);
+    const [perpetualamount3, setPerpetualamount3] = useState<number>(0);
 
-    const [annualamount3, setAnnualamount3] = useState<number>();
-    const [perpetualamount3, setPerpetualamount3] = useState<number>();
+    const [annualamount4, setAnnualamount4] = useState<number>(0);
+    const [perpetualamount4, setPerpetualamount4] = useState<number>(0);
 
-    const [annualamount4, setAnnualamount4] = useState<number>();
-    const [perpetualamount4, setPerpetualamount4] = useState<number>();
+    const [annualamountraw1, setAnnualamountraw1] = useState<number>(0);
+    const [perpetualamountraw1, setPerpetualamountraw1] = useState<number>(0);
 
-    const [annualamountraw1, setAnnualamountraw1] = useState<number>();
-    const [perpetualamountraw1, setPerpetualamountraw1] = useState<number>();
+    const [annualamountraw2, setAnnualamountraw2] = useState<number>(0);
+    const [perpetualamountraw2, setPerpetualamountraw2] = useState<number>(0);
 
-    const [annualamountraw2, setAnnualamountraw2] = useState<number>();
-    const [perpetualamountraw2, setPerpetualamountraw2] = useState<number>();
+    const [annualamountservice, setAnnualamountservice] = useState<number>(0);
+    const [perpetualamountservice, setPerpetualamountservice] = useState<number>(0);
 
-    const [annualamountservice, setAnnualamountservice] = useState<number>();
-    const [perpetualamountservice, setPerpetualamountservice] = useState<number>();
-
-    const [itemname1, setItemname1] = useState<string>();
-    const [itemname2, setItemname2] = useState<string>();
-    const [itemname3, setItemname3] = useState<string>();
+    const [itemname1, setItemname1] = useState<string>('');
+    const [itemname2, setItemname2] = useState<string>('');
+    const [itemname3, setItemname3] = useState<string>('');
 
     const [plan1, setPlan1] = useState<'annual' | 'perpetual'>('annual');
     const [plan2, setPlan2] = useState<'annual' | 'perpetual'>('annual');
@@ -154,6 +156,24 @@ const MainHome = () => {
       fetchData();
     }, []);
 
+    const navigate = useNavigate();
+
+    interface Product {
+      product: string;
+      description: string;
+      amount: number;
+      amountType: string;
+    }
+    
+    const handleBuy = (product: Product) => {
+      // Dispatch the selected product to the Redux store
+      dispatch(setSelectedProduct(product));
+      // Navigate to the checkout page
+      navigate('/checkout');
+    };
+    
+  
+
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40">
       <div className="w-full flex justify-center h-20 items-center">
@@ -165,14 +185,14 @@ const MainHome = () => {
           <span className="text-blue-600">for free!</span>
         </h1>
       </div>
-      <div className="w-full flex justify-center h-10  items-center">
+      <div className="w-full flex justify-center h-10  items-center ">
       <h3 className="text-lg text-gray-600 " style={{ height: '0px' }}>
           Switch to a commercial plan to access advanced features & technical
           support.
         </h3>
       </div>
 
-      <div className="w-full flex justify-center h-10  items-center">
+      <div className="w-full flex justify-center h-10  items-center mt-5">
       <h3 className="text-2xl text-600 mb-5 " style={{ height: '0px' }}>
           {itemname1}
         </h3>
@@ -202,7 +222,12 @@ const MainHome = () => {
     <p className="leading-1 text-gray-500">
       Billed {plan1 === 'annual' ? 'annually at '+annualamount1+' /dev.' : 'monthly at '+perpetualamount1+' /dev.'}
     </p>
-    <Button className="mt-4 inline-block">
+    <Button className="mt-4 inline-block" 
+    onClick={() => handleBuy({ 
+      product: product1, 
+      description: description1,
+      amount: plan1 === 'annual' ? annualamount1 : perpetualamount1,
+      amountType: plan1 === 'annual' ? 'Annual' : 'Perpetual', })}>
       Buy Now
     </Button>
   </div>
@@ -236,9 +261,14 @@ const MainHome = () => {
     
       Billed {plan2 === 'annual' ? 'annually at '+annualamount2+' /dev.' : 'monthly at '+perpetualamount2+' /dev.'}
     </p>
-    <Button className="mt-4 inline-block">
-      Buy Now
-    </Button>
+    <Button className="mt-4 inline-block" onClick={() => handleBuy({ 
+          product: product2, 
+          description: description2,
+          amount: plan2 === 'annual' ? annualamount2 : perpetualamount2,
+          amountType: plan2 === 'annual' ? 'Annual' : 'Perpetual', 
+        })}>
+        Buy Now
+      </Button>
   </div>
     
   </CardFooter>
@@ -267,7 +297,12 @@ const MainHome = () => {
     <p className="leading-1 text-gray-600">
       Billed {plan3 === 'annual' ? 'annually at '+annualamount3+' /dev.' : 'monthly at '+perpetualamount3+' /dev.'}
     </p>
-    <Button className="mt-4 inline-block">
+    <Button className="mt-4 inline-block" 
+     onClick={() => handleBuy({ 
+      product: product3, 
+      description: description3,
+      amount: plan3 === 'annual' ? annualamount3 : perpetualamount3,
+      amountType: plan3 === 'annual' ? 'Annual' : 'Perpetual', })}>
       Buy Now
     </Button>
   </div>
@@ -299,7 +334,12 @@ const MainHome = () => {
     <p className="leading-1 text-gray-600">
       Billed {plan4 === 'annual' ? 'annually at '+annualamount4+' /dev.' : 'monthly at '+perpetualamount4+' /dev.'}
     </p>
-    <Button className="mt-4 inline-block">
+    <Button className="mt-4 inline-block" 
+    onClick={() => handleBuy({ 
+      product: product4, 
+      description: description4,
+      amount: plan4 === 'annual' ? annualamount4 : perpetualamount4,
+      amountType: plan4 === 'annual' ? 'Annual' : 'Perpetual', })}>
       Buy Now
     </Button>
   </div>
@@ -316,7 +356,7 @@ const MainHome = () => {
         </h3>
       </div>
       <div className="flex justify-center">
-      <div className="pl-7 grid grid-cols-2   gap-4  justify-center items-center">
+      <div className="pl-7  grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2   gap-4  justify-center items-center">
      
 
 <Card className="w-[250px] h-[330px] flex flex-col justify-center items-center">
@@ -342,7 +382,11 @@ const MainHome = () => {
     <p className="leading-1 text-gray-600">
       Billed {plan5 === 'annual' ? 'annually at '+annualamountraw1+' /dev.' : 'monthly at '+perpetualamountraw1+' /dev.'}
     </p>
-    <Button className="mt-4 inline-block">
+    <Button className="mt-4 inline-block" onClick={() => handleBuy({ 
+      product: raw1, 
+      description: rawdescription1,
+      amount: plan5 === 'annual' ? annualamountraw1 : perpetualamountraw1,
+      amountType: plan5 === 'annual' ? 'Annual' : 'Perpetual', })}>
       Buy Now
     </Button>
   </div>
@@ -374,7 +418,12 @@ const MainHome = () => {
     <p className="leading-1 text-gray-600">
       Billed {plan6 === 'annual' ? 'annually at '+annualamountraw2+' /dev.' : 'monthly at '+perpetualamountraw2+' /dev.'}
     </p>
-    <Button className="mt-4 inline-block">
+    <Button className="mt-4 inline-block" 
+    onClick={() => handleBuy({ 
+      product: raw2, 
+      description: rawdescription2,
+      amount: plan6 === 'annual' ? annualamountraw2 : perpetualamountraw2,
+      amountType: plan6 === 'annual' ? 'Annual' : 'Perpetual', })}>
       Buy Now
     </Button>
   </div>
@@ -417,7 +466,12 @@ const MainHome = () => {
     <p className="leading-1 text-gray-600">
       Billed {plan7 === 'annual' ? 'annually at '+annualamountservice+' /dev.' : 'monthly at '+perpetualamountservice+' /dev.'}
     </p>
-    <Button className="mt-4 inline-block">
+    <Button className="mt-4 inline-block" 
+    onClick={() => handleBuy({ 
+      product: service, 
+      description: servicedescription,
+      amount: plan7 === 'annual' ? annualamountservice : perpetualamountservice,
+      amountType: plan7 === 'annual' ? 'Annual' : 'Perpetual', })}>
       Buy Now
     </Button>
   </div>

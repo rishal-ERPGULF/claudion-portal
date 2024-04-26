@@ -4,20 +4,20 @@ const Footer = () => {
   return (
     <div className="border-t mt-5 pt-5">
       <div className="mx-20 block border-b">
-        <div className="flex justify-between">
+        <div className="flex grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-between">
         <div className="block mb-5">
-           <div>
+           <div >
             <h2 className="font-extrabold text-xl pb-4">MUI</h2>
             <h2 className="font-bold text-md">Keep up to date</h2>
             <p className="text-gray-500 py-2">Join our newsletter for regular updates. No spam ever.</p>
             <p className="text-gray-400">Your email</p>
-            <div className="flex py-3">
-            <Input type="email" placeholder="Email" />
+            <div className="flex py-3 mr-20">
+            <Input type="email" placeholder="Email"/>
             <Button>Subscribe</Button>
             </div>
            </div>
         </div>
-        <div className="flex gap-12">
+        <div className="flex gap-10 grid grid-cols-2 md:grid-cols-4">
           <div >
             <h3 className="font-bold">Product</h3>
             <p className="text-gray-500">Material UI</p>
@@ -57,9 +57,6 @@ const Footer = () => {
         <div className="border-t flex justify-between py-5">
           <div>
             <p>Copyright © 2024 Material UI SAS, trading as MUI.</p>
-          </div>
-          <div>
-            <p>test</p>
           </div>
         </div>
       </div>
