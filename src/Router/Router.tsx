@@ -1,5 +1,6 @@
 import CheckoutDetails from "@/pages/CheckoutDetails";
 import Home from "@/pages/Home";
+import Html from "@/pages/Html";
 import Orderpayment from "@/pages/Orderpayment";
 import Pricing from "@/pages/Pricing";
 import _layout from "@/pages/_layout";
@@ -35,6 +36,7 @@ const Router = () => {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/checkout" element={<CheckoutDetails/>} />
         <Route path="/order-payment" element={<Orderpayment/>} />
+        <Route path="/html" element={<Html/>} />
       </Route>
     </Routes>
   );

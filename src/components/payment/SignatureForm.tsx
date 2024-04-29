@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Signatureform = () => {
     const amount = useSelector((state: any) => state.app.total);
+    const selectedProduct = useSelector((state: any) => state.app.selectedProduct);
   const [formData, setFormData] = useState({
     merchant_id: '3582509',
     ORDER_ID: '4641',
@@ -20,6 +21,7 @@ const Signatureform = () => {
         order_id: '4641',
         amount: amount,
         quantity: '1',
+        item_code: selectedProduct.product,
       },
     ],
   });
@@ -92,11 +94,16 @@ const Signatureform = () => {
           name="productdetail[0][order_id]"
           value={formData.productdetail[0].order_id}
         />
+        <input
+          type="hidden"
+          name="productdetail[0][item_code]"
+          value={formData.productdetail[0].item_code}
+        />
       <input type="hidden" name="signature" value={signature} />
 
-      <Button >
-        Sadad
-      </Button>
+      <Button className="w-full text-lg m" >
+      Place Order
+    </Button>
       
     </form>
     

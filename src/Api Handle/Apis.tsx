@@ -238,3 +238,52 @@ export const getCoupen = async (coupon: string): Promise<any> => {
     throw error;
   }
 };
+
+
+export const getSubscription_or_invoice =  async (amount: number): Promise<any> => {
+  try {
+    const response = await instance.post(
+      'claudion_io.public.subscription.create_subscription_or_invoice',
+      {
+        party_type: "Customer",
+    party: "Aysha sithara",
+    company: "Claudion",
+    start_date: "2024-02-14",
+    end_date: "2024-03-14",
+    generate_invoice_at: "End of the current subscription period",
+    number_of_days: 2,
+    is_invoice: true,
+    customer_id: "Aysha sithara",
+    items: [
+      { item_code: "wifi", quantity: 1, rate: amount }
+    ],
+    trial_period_end: "2024-01-24",
+    trial_period_start: "2024-01-14",
+    plan: [
+      { plan: "wifi plan", quantity: 5 },
+      { plan: "youtube", quantity: 1 }
+    ]
+  },
+      
+      {
+        headers: {
+          
+          Cookie: 'full_name=Guest; sid=Guest; system_user=yes; user_id=Guest; user_image=; full_name=Guest; sid=Guest; system_user=yes; user_id=Guest; user_image=; full_name=Guest; sid=Guest; system_user=yes; user_id=Guest; user_image=;',
+        },
+      }
+    );
+
+    console.log('Subscription or inovice:', response);
+    if (!response) {
+      
+      return null;
+    } else {
+      return response;
+    }
+
+  } catch (error) {
+   
+    console.error('Error:', error);
+    throw error;
+  }
+};

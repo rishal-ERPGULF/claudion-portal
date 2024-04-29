@@ -171,7 +171,10 @@ const Orderpayment: React.FC = () => {
         <div className="border w-[420px] mt-4 p-5 rounded-md">
         {verified ? (
   <>
-    <p>continue</p>
+    <p className="pb-3">By clicking Place order, 
+      I agree with the terms of the license agreement, 
+      privacy policy and terms and conditions. 
+      I also agree to the refund policy.</p>
     <Signatureform />
   </>
 ) : showrestkeyfield ? (
