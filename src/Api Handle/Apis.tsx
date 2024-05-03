@@ -241,6 +241,7 @@ export const getCoupen = async (coupon: string): Promise<any> => {
 
 
 export const getSubscription_or_invoice =  async (amount: number): Promise<any> => {
+  const accessToken = localStorage.getItem("access_token");
   try {
     const response = await instance.post(
       'claudion_io.public.subscription.create_subscription_or_invoice',
@@ -252,7 +253,7 @@ export const getSubscription_or_invoice =  async (amount: number): Promise<any> 
     end_date: "2024-03-14",
     generate_invoice_at: "End of the current subscription period",
     number_of_days: 2,
-    is_invoice: true,
+    is_invoice: false,
     customer_id: "Aysha sithara",
     items: [
       { item_code: "wifi", quantity: 1, rate: amount }
@@ -267,7 +268,7 @@ export const getSubscription_or_invoice =  async (amount: number): Promise<any> 
       
       {
         headers: {
-          
+          Authorization: `Bearer ${accessToken}`,
           Cookie: 'full_name=Guest; sid=Guest; system_user=yes; user_id=Guest; user_image=; full_name=Guest; sid=Guest; system_user=yes; user_id=Guest; user_image=; full_name=Guest; sid=Guest; system_user=yes; user_id=Guest; user_image=;',
         },
       }
@@ -284,6 +285,39 @@ export const getSubscription_or_invoice =  async (amount: number): Promise<any> 
   } catch (error) {
    
     console.error('Error:', error);
+    throw error;
+  }
+};
+
+// create payment
+export const createPayment = async ( amount: number, status:string, orderId: string): Promise<any> => {
+  const accessToken = localStorage.getItem("access_token");
+  try {
+    const response = await instance.post(
+      'claudion_io.public.subscription.create_payment',
+      {
+        user_id: '72763671@erpgulf.com0011',
+        amount: amount,
+        reference_id: '1',
+        status: status,
+        subscription_id: orderId,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          Cookie: 'full_name=Guest; sid=Guest; system_user=no; user_id=Guest; user_image=;'
+        }
+      }
+    );
+
+    console.log('Payment creation response:', response);
+    if (!response) {
+      return null;
+    } else {
+      return response;
+    }
+  } catch (error) {
+    console.error('Error creating payment:', error);
     throw error;
   }
 };

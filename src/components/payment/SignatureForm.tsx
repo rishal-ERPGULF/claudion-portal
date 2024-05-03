@@ -1,24 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CryptoJS from 'crypto-js';
 import { Button } from '../ui/button';
 import { useSelector } from 'react-redux';
+import { getSubscription_or_invoice } from '@/Api Handle/Apis';
 
 const Signatureform = () => {
+  
     const amount = useSelector((state: any) => state.app.total);
+   
+     
     const selectedProduct = useSelector((state: any) => state.app.selectedProduct);
   const [formData, setFormData] = useState({
     merchant_id: '3582509',
-    ORDER_ID: '4641',
+    ORDER_ID: '',
     WEBSITE: 'hiba.claudion.com',
-    TXN_AMOUNT: '180.00',
+    TXN_AMOUNT: amount,
     EMAIL: 'azim@htsqatar.com',
     MOBILE_NO: '77235274',
-    CALLBACK_URL: 'https://aysha.erpgulf.com/api/method/aysha_training.sadad.sadad',
+    VERSION : '1.1',
+    CALLBACK_URL: 'https://io.claudion.com/api/method/claudion_io.public.subscription.sadad',
     SADAD_WEBCHECKOUT_PAGE_LANGUAGE: 'ENG',
-    txnDate: '2020-09-19 13:01:33',
+    txnDate: '2024-04-19 12:10:00',
     productdetail: [
       {
-        order_id: '4641',
+        order_id: '',
         amount: amount,
         quantity: '1',
         item_code: selectedProduct.product,
@@ -27,13 +32,42 @@ const Signatureform = () => {
   });
 
   const [signature, setSignature] = useState('');
+  const [id, setId] = useState('');
 
   const secretKey = import.meta.env.VITE_Secretkey;
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const invoiceorsubcription = await getSubscription_or_invoice(amount);
+        const subscriptionId = invoiceorsubcription.data.data.Subscription_details.id;
+        console.log(subscriptionId);
+        
+        // Update id state
+        setId(subscriptionId);
+        
+        // Update formData after fetching data
+        setFormData(prevState => ({
+          ...prevState,
+          ORDER_ID: subscriptionId,
+          productdetail: prevState.productdetail.map(item => ({
+            ...item,
+            order_id: subscriptionId
+          }))
+        }));
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, [amount]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    // Prevent the default form submission behavior
+    
     event.preventDefault();
-  
+    
+    
+
     // Generate the signature
     const sortedKeys = Object.keys(formData).sort();
     const sortedParams = sortedKeys
@@ -56,6 +90,7 @@ const Signatureform = () => {
     if (formElement) {
       formElement.submit();
     }
+ 
   };
 
   return (
@@ -68,6 +103,7 @@ const Signatureform = () => {
         <input type="hidden" name="EMAIL" id="EMAIL" value={formData.EMAIL} />
         <input type="hidden" name="MOBILE_NO" id="MOBILE_NO" value={formData.MOBILE_NO} />
         <input type="hidden" name="SADAD_WEBCHECKOUT_PAGE_LANGUAGE" id="SADAD_WEBCHECKOUT_PAGE_LANGUAGE" value={formData.SADAD_WEBCHECKOUT_PAGE_LANGUAGE}/>
+        <input type="hidden" name="VERSION" id="VERSION" value={formData.VERSION}/>
 
         <input
           type="hidden"

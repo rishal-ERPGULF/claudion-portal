@@ -2,7 +2,7 @@ import axios from "axios";
 import { refreshToken } from "./Apis";
 
 const instance = axios.create({
-  baseURL: "https://io.claudion.com:8555/api/method/",
+  baseURL: "https://io.claudion.com/api/method/",
 });
 
 instance.interceptors.response.use(

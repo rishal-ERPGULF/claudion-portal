@@ -15,9 +15,6 @@ const CheckoutDetails = () => {
     navigate('/order-payment');
   };
 
- 
-  
-  
   return (
     <div className="w-full">
     <div className="mx-14 mt-16 mr-20">

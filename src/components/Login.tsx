@@ -9,8 +9,8 @@ interface Props {
 }
 
 const Login: React.FC<Props> = ({ setVerified }) => {
-    const [password, setPassword] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
+    const [email, setEmail] = useState<string>("72763671@erpgulf.com0011");
+    const [password, setPassword] = useState<string>("72763671@123");
 
     const handleSubmit = async () => {
         console.log("Email:", email); 
