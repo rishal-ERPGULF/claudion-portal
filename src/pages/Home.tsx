@@ -53,7 +53,7 @@ const Home = () => {
           <TableBody>
             <TableRow>
               <TableCell
-                className="font-medium text-blue-600 text-nowrap"
+                className="font-medium text-blue-600 text-nowrap cursor-pointer"
                 onClick={() => {
                   navigate("/claudions/1");
                 }}

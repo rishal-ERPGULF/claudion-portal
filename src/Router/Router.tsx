@@ -1,3 +1,4 @@
+import BenchView from "@/pages/BenchView";
 import Home from "@/pages/Home";
 import Pricing from "@/pages/Pricing";
 import _layout from "@/pages/_layout";
@@ -32,6 +33,7 @@ const Router = () => {
         <Route index element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/checkout" element={<div>heloo</div>} />
+        <Route path="/claudions/:id" element={<BenchView />} />
       </Route>
     </Routes>
   );
